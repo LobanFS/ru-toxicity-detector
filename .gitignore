@@ -1,1 +1,21 @@
+# venv / среды
+venv/
+.venv/
+env/
+.idea/
 
+# data и модели
+data/*
+!data/README.md
+models/*
+!models/.gitkeep
+
+# кэш и мусор
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# логи
+*.log
+logs/
