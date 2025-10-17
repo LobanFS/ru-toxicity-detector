@@ -1,0 +1,28 @@
+```txt
+# Core
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+scipy>=1.10
+
+# Visualization (минимум)
+matplotlib>=3.7
+
+# Transformers stack
+torch>=2.2
+transformers>=4.43
+datasets>=2.20
+accelerate>=0.33
+tqdm>=4.66
+sentencepiece>=0.2
+
+# API / Demo (выбери одно или оставь оба)
+fastapi>=0.115
+uvicorn[standard]>=0.30
+streamlit>=1.37
+
+# Dev
+jupyter>=1.0
+ipykernel>=6.29
+python-dotenv>=1.0
+joblib>=1.4
