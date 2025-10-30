@@ -1,12 +1,13 @@
 # venv / среды
 venv/
 .venv/
+.venv_win/
+.venv312/
 env/
 .idea/
 
 # data и модели
 data/*
-!data/README.md
 models/*
 !models/.gitkeep
 
