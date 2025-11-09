@@ -1,12 +1,12 @@
 import re
 import csv
-from pathlib import Path
+from src.data.pathing import DATA
 
 def main():
-    src = Path("data/okru/okru_raw.txt")
-    dst_dir = Path("")
+    src = DATA / "okru" / "okru_raw.txt"
+    dst_dir = DATA / "okru"
     dst_dir.mkdir(parents=True, exist_ok=True)
-    dst = dst_dir / "okru_normalized.csv"
+    dst = dst_dir / "okru_normalised.csv"
 
     toxic_set = {"INSULT", "THREAT", "OBSCENITY"}
     rows = []

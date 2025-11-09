@@ -1,8 +1,8 @@
 import pandas as pd
-from pathlib import Path
+from src.data.pathing import DATA
 
-SRC = Path("data/pikabu2ch/pikabu2ch_raw.csv")
-DST = Path("data/pikabu2ch/pikabu2ch_normalized.csv")
+SRC = DATA / "pikabu2ch" / "pikabu2ch_raw.csv"
+DST = DATA / "pikabu2ch" / "pikabu2ch_normalised.csv"
 DST.parent.mkdir(parents=True, exist_ok=True)
 
 def main():

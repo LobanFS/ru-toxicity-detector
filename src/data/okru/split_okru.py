@@ -1,9 +1,9 @@
-from pathlib import Path
 import pandas as pd
 from sklearn.model_selection import train_test_split
+from src.data.pathing import DATA
 
-SRC = Path("data/okru/okru_normalized.csv")
-OUT = Path("")
+SRC = DATA / "okru" / "okru_normalised.csv"
+OUT = DATA / "okru"
 OUT.mkdir(parents=True, exist_ok=True)
 
 def main():
