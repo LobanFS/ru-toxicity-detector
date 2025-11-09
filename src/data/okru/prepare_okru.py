@@ -4,7 +4,7 @@ from pathlib import Path
 
 def main():
     src = Path("data/okru/okru_raw.txt")
-    dst_dir = Path("data/okru")
+    dst_dir = Path("")
     dst_dir.mkdir(parents=True, exist_ok=True)
     dst = dst_dir / "okru_normalized.csv"
 

@@ -3,7 +3,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 SRC = Path("data/okru/okru_normalized.csv")
-OUT = Path("data/okru")
+OUT = Path("")
 OUT.mkdir(parents=True, exist_ok=True)
 
 def main():
