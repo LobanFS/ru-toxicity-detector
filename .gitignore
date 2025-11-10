@@ -4,15 +4,11 @@ env/
 .idea/
 
 # data и модели
-models/*
-!models/.gitkeep
-
+data/
+models/
 # кэш и мусор
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
 
-# логи
-*.log
-logs/
