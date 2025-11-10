@@ -5,8 +5,9 @@ env/
 
 #дата
 data/
+/data/
 models/
-
+/models/
 # кэш и мусор
 __pycache__/
 *.pyc
