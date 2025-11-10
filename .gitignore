@@ -4,8 +4,8 @@ env/
 .idea/
 
 # data и модели
-data/
-models/
+/data/
+/models/
 # кэш и мусор
 __pycache__/
 *.pyc
