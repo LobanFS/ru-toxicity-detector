@@ -11,11 +11,11 @@ from sklearn.metrics import classification_report, roc_auc_score, average_precis
 from src.data.pathing import BASE, DATA
 from src.utils import iter_clean
 
-OKRU_TRAIN = DATA / "okru" / "train.csv"
-PIKABU_VAL = DATA / "pikabu2ch" / "val.csv"
-PIKABU_TEST = DATA / "pikabu2ch" / "test.csv"
+TRAIN = DATA / "okru" / "train.csv"
+VAL = DATA / "okru" / "val.csv"
+TEST = DATA / "pikabu2ch" / "test.csv"
 
-OUT_DIR = DATA / "models" /" baseline_tuned"
+OUT_DIR = BASE / "models" /" baseline_tuned"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 MODEL_PATH = OUT_DIR / "model.joblib"
 CFG_PATH = OUT_DIR / "best_config.json"
@@ -48,7 +48,8 @@ def build_pipeline():
         solver="liblinear",
         class_weight="balanced",
         max_iter=1000,
-        n_jobs=1
+        n_jobs=1,
+        C=3.0,
     )
     pipe = Pipeline([("featurizer", fe), ("clf", clf)])
     return pipe
@@ -58,10 +59,8 @@ def fit_grid_search(Xtr, ytr):
     pipe = build_pipeline()
 
     param_grid = {
-        "featurizer__word__ngram_range": [(1,1), (1,2)],
         "featurizer__char__ngram_range": [(3,4), (3,5)],
-        "featurizer__word__min_df": [2, 3],
-        "clf__C": [0.5, 2.0, 3.0],
+        "clf__C" : []
     }
     grid = GridSearchCV(
         pipe, param_grid=param_grid,
@@ -90,9 +89,9 @@ def evaluate(name, y_true, proba, thr=0.5):
 
 
 def main():
-    Xtr, ytr = load_xy(OKRU_TRAIN)
-    Xva, yva = load_xy(PIKABU_VAL)
-    Xte, yte = load_xy(PIKABU_TEST)
+    Xtr, ytr = load_xy(TRAIN)
+    Xva, yva = load_xy(VAL)
+    Xte, yte = load_xy(TEST)
 
     grid = fit_grid_search(Xtr, ytr)
     best = grid.best_estimator_
