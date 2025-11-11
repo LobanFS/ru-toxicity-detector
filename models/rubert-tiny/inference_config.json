@@ -1,0 +1,10 @@
+{
+  "model_name": "cointegrated/rubert-tiny2",
+  "max_length": 256,
+  "temperature": 1.2723009586334229,
+  "threshold_global": 0.49874842166900635,
+  "label_mapping": {
+    "non_toxic": 0,
+    "toxic": 1
+  }
+}
