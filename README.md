@@ -29,18 +29,18 @@ data/okru/train.csv, val.csv, test.csv
 data/pikabu2ch/val.csv, test.csv
 
 ## Быстрый старт
-## 1) Установите зависимости
+## 1) Установите зависимости и создайте окружение
 pip install -r requirements.txt
 
 ## 1.5) Используйте готовые модели ( опционально )
-python src/main.py 
+python -m src.main
 если модель с трансформером не лежит в локальных файлах, она устанавливается из huggingface_hub.
 
 ## 2) Обучите baseline
-python src/baseline/train_baseline.py
+python -m src.baseline.train_baseline
 
 ## 3) Запустите инференс через меню
-python src/predict_cli/predict_baseline_cli.py
+python -m src.predict_cli.predict_baseline_cli
 
 ## 4) Модели и хранение
 После обучения baseline сохраняется в:
@@ -54,7 +54,7 @@ models/baseline.threshold.json
 
 ## 6) Инференс
 Универсальное меню (выбор baseline или rubert-tiny):
-python src/main.py
+python -m src.main
 При старте выбрать:
 1 — baseline (TF-IDF + LogisticRegression)
 2 — rubert-tiny (трансформер)
@@ -77,3 +77,5 @@ Baseline использует TF-IDF по словам (1–2-граммы) и �
 Порог классификации подбирается по OK.ru val (максимизация F1).
 Трансформер основан на cointegrated/rubert-tiny2 c temperature_scaling.
 Все модели и артефакты хранятся в папке models/.
+
+Если хочется запускать скрипты из IDE стоит заменить их working directory на корень проекта.
