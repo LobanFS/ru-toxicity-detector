@@ -29,9 +29,7 @@ data/okru/train.csv, val.csv, test.csv
 data/pikabu2ch/val.csv, test.csv
 
 ## Быстрый старт
-## 1) Создайте окружение и установите зависимости
-python -m venv .venv
-source .venv/bin/activate (Windows: .venv\Scripts\activate)
+## 1) Установите зависимости
 pip install -r requirements.txt
 
 ## 1.5) Используйте готовые модели ( опционально )
@@ -41,8 +39,8 @@ python src/main.py
 ## 2) Обучите baseline
 python src/baseline/train_baseline.py
 
-Запустите инференс через меню
-## 3) python src/predict_cli/predict_baseline_cli.py
+## 3) Запустите инференс через меню
+python src/predict_cli/predict_baseline_cli.py
 
 ## 4) Модели и хранение
 После обучения baseline сохраняется в:
@@ -62,19 +60,19 @@ python src/main.py
 2 — rubert-tiny (трансформер)
 Далее вводите текст построчно. Команда stop завершает работу.
 
-Оценка
+## Оценка
 Обучение — OK.ru (train + val)
 Тест — Pikabu (test)
 Метрики — F1 (основная), ROC-AUC, PR-AUC.
 Цель — максимизация F1 для токсичного класса (1).
 
-Основные файлы проекта
+## Основные файлы проекта
 Подготовка данных: prepare_okru.py, split_okru.py, prepare_pikabu.py, split_pikabu.py
 Обучение baseline: train_baseline.py, tune_baseline.py
 Обучение трансформера: training_transformer.ipynb
 Инференс: predict_cli.py, script_for_help.py, predict_rubert_cli.py
 
-Примечания
+## Примечания
 Baseline использует TF-IDF по словам (1–2-граммы) и символам (3–5-граммы) + LogisticRegression с class_weight=balanced.
 Порог классификации подбирается по OK.ru val (максимизация F1).
 Трансформер основан на cointegrated/rubert-tiny2 c temperature_scaling.
