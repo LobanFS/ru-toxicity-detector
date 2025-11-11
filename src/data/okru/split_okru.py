@@ -20,7 +20,7 @@ def main():
     val_df.to_csv(OUT / "val.csv", index=False)
     test_df.to_csv(OUT / "test.csv", index=False)
 
-    print("✅ saved:",
+    print("saved:",
           OUT / "train.csv", train_df.shape,
           OUT / "val.csv",   val_df.shape,
           OUT / "test.csv",  test_df.shape, sep="\n")

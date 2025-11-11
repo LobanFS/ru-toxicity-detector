@@ -1,16 +1,20 @@
-# venv / среды
-.venv312/
+# виртуальные среды и IDE
+.venv*/
 env/
 .idea/
-
-#дата
-data/
-/data/
-models/
-/models/
-# кэш и мусор
 __pycache__/
 *.pyc
 .ipynb_checkpoints/
 .DS_Store
 
+# временные и кеш-файлы
+*.log
+*.tmp
+
+# данные
+data/*
+!data/
+!data/.gitkeep
+
+# прочее
+*.bak
